@@ -7,8 +7,8 @@ class ComparisonCard extends React.Component{
     constructor(){
         super();
         this.state={
-            user1Progress:0.5,
-            user2Progress:0.5
+            user1Progress:0,
+            user2Progress:0
         };
     }
 
@@ -21,10 +21,13 @@ class ComparisonCard extends React.Component{
         // console.log(totalValue);
         let user1Progress=user1Value/totalValue;
         let user2Progress=user2Value/totalValue;
-        this.setState({
-            user1Progress:user1Progress,
-            user2Progress:user2Progress
-        });
+        if(!isNaN(user1Progress)&&!isNaN(user2Progress)){
+            this.setState({
+                user1Progress:user1Progress,
+                user2Progress:user2Progress
+            });
+        }
+        
     }
 
     render(){
@@ -36,9 +39,9 @@ class ComparisonCard extends React.Component{
                     <Text>{this.props.comparisonInfo.details}</Text>
                 </View>
 
-                <View>
+                <View style={{flexDirection:'row'}}>
                     
-                    <View>
+                    <View style={{flex:1}}>
                         <Text>{this.props.comparisonInfo.user1.name}</Text>
                         <View>
                             <ProgressBar progress={this.state.user1Progress}/>
@@ -47,7 +50,7 @@ class ComparisonCard extends React.Component{
                     </View>
 
                     
-                    <View>
+                    <View style={{flex:1}}>
                         <Text>{this.props.comparisonInfo.user2.name}</Text>
                         <View>
                             <ProgressBar progress={this.state.user2Progress}/>

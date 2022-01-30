@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import ComparisonCard from "./components/ComparisonCard";
+import ComparisonList from "./components/ComparisionList";
 
 class App extends React.Component{
   constructor(){
@@ -183,7 +184,7 @@ class App extends React.Component{
     // console.log("user2");
     // console.log(this.state.user2);
     return(
-      <ScrollView style={styles.topContainer}>
+      <View style={styles.topContainer}>
 
         <View style={styles.userComparisonDetailsContainer}>
 
@@ -213,26 +214,19 @@ class App extends React.Component{
           </View>
 
         </View>
-        {this.isDataLoading()?null:<ComparisonCard comparisonInfo={{
-          title:'Total prize won',
-          details:'let see who earned more',
-          user1:{
-            name:this.state.user1.name,
-            value:this.state.user1.totalCashWon
-          },
-          user2:{
-            name:this.state.user2.name,
-            value:this.state.user2.totalCashWon
-          }
-        }}/>}
+
+        {this.isDataLoading()?null:<ComparisonList user1={this.state.user1} user2={this.state.user2}/>}
 
 
-      </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  topContainer:{
+    flex:1
+  },
   userComparisonDetailsContainer: {
     flexDirection:'row',
     justifyContent:'space-evenly',
@@ -248,7 +242,7 @@ const styles = StyleSheet.create({
   },
   userDetailsContainer:{
     marginVertical:10
-  }
+  },
 });
 
 export default App;
