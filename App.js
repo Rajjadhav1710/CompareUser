@@ -31,7 +31,7 @@ class App extends React.Component{
         highestStreak:0
       },
       user2:{
-        uid:"61e04d3adc6894582a6968d9",
+        uid:"61e04cc2dc6894582a6968b5",
         name:'',
         profilePic:'https://cdn-icons.flaticon.com/png/128/4529/premium/4529766.png?token=exp=1643475612~hmac=294dcd63c9c25e0773a1c0c9deb18fbe',
         totalCashWon:0,
@@ -194,7 +194,7 @@ class App extends React.Component{
               style={{width: 130, height: 130,borderRadius:100}} />
             </View>
             <View style={styles.userDetailsContainer}>
-              <Text style={[styles.userDetails,{color:'#4fbeff'}]}>User1</Text>
+              <Text style={[styles.userDetails,{color:'#4fbeff'}]}>{this.state.user1.name}</Text>
             </View>
           </View>
 
@@ -209,7 +209,7 @@ class App extends React.Component{
                 style={{ width: 130, height: 130,borderRadius:100 }} />
             </View>
             <View style={styles.userDetailsContainer}>
-              <Text style={[styles.userDetails,{color:'#db0293'}]}>User2</Text>
+              <Text style={[styles.userDetails,{color:'#db0293'}]}>{this.state.user2.name}</Text>
             </View>
           </View>
 
@@ -231,8 +231,17 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-evenly',
     alignItems:'center',
-    marginVertical:30,
-    // borderWidth:1
+    // marginVertical:30,
+    paddingVertical:30,
+    // borderBottomWidth:1,
+    // borderTopWidth:10,
+    borderBottomLeftRadius:20,
+    borderBottomRightRadius:20,
+    // borderBottomColor:'grey',
+    // borderTopColor:'#5C7AEA',
+    // marginTop:20
+    backgroundColor:'#EEEEEE',
+    elevation:10
   },
   userDetails:{
     textAlign:'center',

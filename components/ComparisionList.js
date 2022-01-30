@@ -3,7 +3,8 @@ import React from "react";
 import { 
     FlatList,
     View,
-    Text
+    Text,
+    StyleSheet
 } from "react-native";
 
 import ComparisonCard from "./ComparisonCard";
@@ -21,7 +22,7 @@ class ComparisonList extends React.Component{
             data:[
                 {
                     title:'Total prize won',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalCashWon
@@ -33,7 +34,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'Total contest won',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalContestWon
@@ -45,7 +46,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'Total Contest Participated',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalContestParticipated
@@ -57,7 +58,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'Total pool won',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalPoolWon
@@ -69,7 +70,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'Total Pool Participated',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalPoolParticipated
@@ -81,7 +82,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'TotalChallenge Won',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalChallengeWon
@@ -93,7 +94,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'Total Challenge Participated',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalChallengeParticipated
@@ -105,7 +106,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'Total Challenge Created',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalChallengeCreated
@@ -117,7 +118,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'Total total xp',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.totalXP
@@ -129,7 +130,7 @@ class ComparisonList extends React.Component{
                 },
                 {
                     title:'highest Streak',
-                    details:'let see who earned more',
+                    details:'"let see who earned more"',
                     user1:{
                       name:this.props.user1.name,
                       value:this.props.user1.highestStreak
@@ -146,7 +147,7 @@ class ComparisonList extends React.Component{
 
     render(){
         return(
-            <View style={{flex:1}}>
+            <View style={styles.comparisonListContainer}>
             <FlatList data={this.state.data}
             renderItem={({item})=>{
                 return(
@@ -169,5 +170,11 @@ class ComparisonList extends React.Component{
 
     }
 }
+
+const styles=StyleSheet.create({
+    comparisonListContainer:{
+        flex:1
+    }
+});
 
 export default ComparisonList;
