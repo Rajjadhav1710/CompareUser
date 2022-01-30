@@ -43,7 +43,11 @@ class App extends React.Component{
         totalChallengeCreated:0,
         totalXP:0,
         highestStreak:0
-      }
+      },
+      isLoading1:true,
+      isLoading2:true,
+      isLoading3:true,
+      isLoading4:true
     }
   }
 
@@ -65,7 +69,8 @@ class App extends React.Component{
             name: data.name,
             profilePic: data.profile_pic,
             totalCashWon: data.total_cash_won
-          }
+          },
+          isLoading1:false
         });
         // console.log('Success:', data);
       })
@@ -94,7 +99,8 @@ class App extends React.Component{
             totalChallengeCreated: data.challenge_created,
             totalXP: data.totalXP,
             highestStreak: data.highestStreak
-          }
+          },
+          isLoading2:false
         });
         // console.log('Success:', data);
       })
@@ -118,7 +124,8 @@ class App extends React.Component{
               name: data.name,
               profilePic: data.profile_pic,
               totalCashWon: data.total_cash_won
-            }
+            },
+            isLoading3:false
           });
           // console.log('Success:', data);
         })
@@ -147,7 +154,8 @@ class App extends React.Component{
               totalChallengeCreated: data.challenge_created,
               totalXP: data.totalXP,
               highestStreak: data.highestStreak
-            }
+            },
+            isLoading4:false
           });
           // console.log('Success:', data);
         })
@@ -157,6 +165,12 @@ class App extends React.Component{
 
   }
 
+  isDataLoading(){
+    if(this.state.isLoading1||this.state.isLoading2||this.state.isLoading3||this.state.isLoading4)
+      return true;
+    else
+      return false;
+  }
 
   componentDidMount(){
     this.getUsers();
@@ -210,6 +224,7 @@ class App extends React.Component{
             value:this.state.user2.totalCashWon
           }
         }}/>
+        
 
       </ScrollView>
     );
